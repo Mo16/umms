@@ -137,18 +137,17 @@
                            </div>
                         </div>
 
-                           <div class="row centered incremetor-div amount" id="amount" style="text-align: center; ">
+                        <div class="row centered incremetor-div amount" id="amount" style="text-align: center; ">
                            <span>Price: <span class="price">0.05</span> ETH</span>
 
-                              <div class="wrapper centered">
-                                 <span class="minus">-</span>
-                                 <span id="numTokens" class="numTokens">1</span>
-                                 <span class="plus">+</span>
-                              </div>
+                           <div class="wrapper centered">
+                              <span class="minus">-</span>
+                              <span id="numTokens" class="numTokens">1</span>
+                              <span class="plus">+</span>
                            </div>
-                           <a id="btn-connect" style="text-align: center; "
-                              class="nav-btn w-nav-link ">Coming soon...</a>
-                           <p class="errormsg" id="errormsg"></p>
+                        </div>
+                        <a id="btn-connect" style="text-align: center; " class="nav-btn w-nav-link ">Coming soon...</a>
+                        <p class="errormsg" id="errormsg"></p>
 
                      </div>
                   </div>
@@ -204,54 +203,6 @@
             <p class="">Created by <a href="https://mochoudhury.dev">Mo</a></p>
          </div>
 
-
-
-
-
-
-         <script>
-            const MAX_AMOUNT = 10;
-            const MIN_AMOUNT = 1;
-
-            // Event listeners
-            $(document)
-               .on('click', '.minus', mintMinus)
-               .on('click', '.plus', mintPlus)
-               .on('click', '.max', setMaxQuantity);
-
-            function setMaxQuantity() {
-               setMintQuantity(MAX_AMOUNT);
-            }
-
-            function mintPlus() {
-               const new_val = getMintQuantity() + 1;
-
-               if (new_val > MAX_AMOUNT) {
-                  return;
-               }
-
-               setMintQuantity(new_val);
-            }
-
-            function mintMinus() {
-               const new_val = getMintQuantity() - 1;
-
-               if (new_val < MIN_AMOUNT) {
-                  return;
-               }
-
-               setMintQuantity(new_val);
-            }
-
-            function getMintQuantity() {
-               return parseInt($('.count').html());
-            }
-
-            function setMintQuantity(quantity) {
-               $('.count').html(quantity);
-            }
-         </script>
-         <!-- Slick Slider JS -->
          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js">
          </script>
 
@@ -266,14 +217,14 @@
          <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 
          <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
-       
-       
+
+
          <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
          <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
-         <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+         <script type="text/javascript"
+            src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
          <script src="./js/blockchain.js"></script>
-         <!-- <script src="./js/accounts.js"></script>
-      <script src="./js/web3modal.js"></script> -->
+
          <script>
             AOS.init();
          </script>
@@ -285,9 +236,12 @@
             let a = 1;
             let price = 0.05
             plus.addEventListener("click", () => {
-               a++;
-               num.innerText = a;
-               value.innerText = (price * a).toFixed(2)
+               if (a < 3) {
+                  a++;
+                  num.innerText = a;
+                  value.innerText = (price * a).toFixed(2)
+               }
+
             });
 
             minus.addEventListener("click", () => {
