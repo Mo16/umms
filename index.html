@@ -104,8 +104,8 @@
 
          <div class="hero2 wf-section centered " style="text-align: center;">
             <img class="mobileimg" src="/images/mobileimg.png" alt="">
-             <a target="_blank" rel="noopener noreferrer" href="https://opensea.io/collection/"><img
-                  class="socials" src="/images/opensea 1.png" alt=""></a>
+            <a target="_blank" rel="noopener noreferrer" href="https://opensea.io/collection/"><img class="socials"
+                  src="/images/opensea 1.png" alt=""></a>
             <!-- <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ummsnft"><img class="socials"
                   src="/images/twitter 1.png" alt=""></a>
             <a target="_blank" rel="noopener noreferrer" href=""><img class="socials"
@@ -127,24 +127,29 @@
                         <div class="beforeconnect" id="beforeconnect">
                            <div class="row centered text-paragraph"
                               style="text-align: center; margin-top: 18px; margin-bottom: 30px;">
-                              We are Umms. We are a collection of 5,025 NFTs on the Ethereum blah blah blah blah - you
-                              know the drill. Truly, we aren’t really sure what we are. Maybe we’re Unique Mystery
-                              Mixtures. Or just Ultimate Merry Mistakes. We might be Unassuming Metaverse Morons. You
-                              tell us.
+                              Hi. We are umm…Umms! 5,025 NFTs on the Ethereum blah blah blah - you know the drill.
+                              Truly, we aren’t really sure what we are. Maybe we’re Unique Mystery Mixtures. Or just
+                              Ultimate Merry Mistakes. We might be Unassuming Metaverse Morons. You tell us. Owning Umms
+                              will give holders the opportunity to be promoted across BatDad’s social media network (8.8
+                              million followers on Facebook, 1.4 million followers on Instagram), and also receive
+                              special 1/1 honorary Umms from our artist, Tiffany. She's the most badass middle school
+                              teacher around. Please follow us on Twitter to stay in touch with us!
                            </div>
                         </div>
-                        <div class="onconnect" id="onconnect">
+
+                           <div class="row centered incremetor-div amount" id="amount" style="text-align: center; ">
                            <span>Price: <span class="price">0.05</span> ETH</span>
-                           <div class="row centered incremetor-div" style="text-align: center; ">
+
                               <div class="wrapper centered">
                                  <span class="minus">-</span>
                                  <span id="numTokens" class="numTokens">1</span>
                                  <span class="plus">+</span>
                               </div>
                            </div>
-                           <a href="#" id="mint" onclick="mint()" style="text-align: center; "
-                              class="nav-btn w-nav-link ">Connect wallet First</a>
-                        </div>
+                           <a id="btn-connect" style="text-align: center; "
+                              class="nav-btn w-nav-link ">Coming soon...</a>
+                           <p class="errormsg" id="errormsg"></p>
+
                      </div>
                   </div>
                </div>
@@ -162,7 +167,8 @@
                            class="fa-brands fa-3x fa-facebook"></i></a>
                      <a href="https://www.instagram.com/batdadblake"> <i style="color: #c15a81;"
                            class="fa-brands fa-3x fa-instagram"></i></a>
-                     <a href="https://youtube.com/TheOfficialBatDad"> <i style="color: #a54948;" class="fa-brands fa-3x fa-youtube"></i></a>
+                     <a href="https://youtube.com/TheOfficialBatDad"> <i style="color: #a54948;"
+                           class="fa-brands fa-3x fa-youtube"></i></a>
                      <a href="https://twitter.com/realbatdad"> <i style="color: #5bc8c0;"
                            class="fa-brands fa-3x fa-twitter"></i></a>
                   </div>
@@ -177,12 +183,14 @@
                   <img src="/images/tiffany.jpeg" alt="">
                   <h2>Tiffany</h2>
                   <div class="socials">
-                     <a href="https://www.instagram.com/thecobrachicken/"> <i style="color: #c15a81;"class="fa-brands fa-3x fa-instagram"></i></a>
-                     <a href="https://twitter.com/ummsnft"> <i style="color: #5bc8c0;" class="fa-brands fa-3x fa-twitter"></i></a>
+                     <a href="https://www.instagram.com/thecobrachicken/"> <i style="color: #c15a81;"
+                           class="fa-brands fa-3x fa-instagram"></i></a>
+                     <a href="https://twitter.com/ummsnft"> <i style="color: #5bc8c0;"
+                           class="fa-brands fa-3x fa-twitter"></i></a>
 
                   </div>
                   <p>
-                     My name is Tiffany. I am a teacher by day and a cat mattress by night. I like to draw and torment
+                     My name is Tiffany. I'm a teacher by day and a cat mattress by night. I like to draw and torment
                      my middle schooler with puns.</p>
 
                </div>
@@ -253,13 +261,16 @@
          <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-         <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
-         <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
-         <script type="text/javascript" src="https://unpkg.com/evm-chains/lib/index.js"></script>
-         <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
-         <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
 
-         <!-- <script src="./js/main.js"></script> -->
+
+         <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+
+         <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+       
+       
+         <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+         <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+         <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
          <script src="./js/blockchain.js"></script>
          <!-- <script src="./js/accounts.js"></script>
       <script src="./js/web3modal.js"></script> -->

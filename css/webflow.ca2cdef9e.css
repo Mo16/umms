@@ -8,6 +8,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
 
 
+.errormsg{
+  padding-top: 10px;
+}
+
+.amount{
+  display: none;
+}
+
 
 .cards{
   max-width: 1100px;
