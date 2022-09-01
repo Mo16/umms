@@ -799,10 +799,11 @@ async function mintAllowlist() {
             } else if (err.message == "execution reverted: The contract is paused!") {
                 document.getElementById("errormsg").innerHTML = "Minting is paused!"
 
-            } else {
-                document.getElementById("errormsg").innerHTML = err.message
+             } 
+             //else {
+            //     document.getElementById("errormsg").innerHTML = err.message
 
-            }
+            // }
         }
 
 
