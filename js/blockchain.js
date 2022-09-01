@@ -777,10 +777,20 @@ async function mintAllowlist() {
             value: ethers.utils.parseEther(total.toString())
         };
         try {
-            console.log("miting")
+
             let mint = await contract.mint(amountChosen, overrides)
-            mint.wait()
-            document.getElementById("btn-connect").innerHTML = "Success"
+            document.getElementById("btn-connect").innerHTML = "Minting..."
+
+            
+            if(await mint.wait()){
+                document.getElementById("btn-connect").innerHTML = "Success!"
+                document.getElementById("errormsg").innerHTML = "You can now view your NFT on Opensea :)"
+
+            }else{
+                document.getElementById("errormsg").innerHTML = "Failed, Try again..."
+                document.getElementById("btn-connect").innerHTML = "Mint"
+
+            }
 
         } catch (err) {
 
