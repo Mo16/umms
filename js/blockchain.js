@@ -1,11 +1,11 @@
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
 
-
-
 function truncate(input) {
     return `${input.slice(0, 6)}...${input.slice(-4)}`
 }
+
+
 
 
 
@@ -627,9 +627,7 @@ const ABI = [{
 
 
 
-let contractAddress = "0x6fa1f07dd30Ef5ABE3124676fAe3F6e273D20F15";
-
-let chainData
+let contractAddress = "0x9C62e0457b89fDCE6CEd21f8363439c630466473";
 
 let web3Modal
 
@@ -665,7 +663,6 @@ async function fetchAccountData() {
     web3 = new Web3(provider);
     console.log("Web3 instance is", web3);
     const chainId = await web3.eth.getChainId();
-    chainData = evmChains.getChain(chainId);
     const accounts = await web3.eth.getAccounts();
     console.log("Got accounts", accounts);
     selectedAccount = accounts[0]
@@ -679,7 +676,7 @@ async function fetchAccountData() {
 
 
 
-    if (chainId != 4) {
+    if (chainId != 1) {
         document.getElementById("errormsg").innerHTML = "Switch to Mainnet"
         mintstatus = false
     } else {
@@ -782,15 +779,11 @@ async function mintAllowlist() {
             document.getElementById("btn-connect").innerHTML = "Minting..."
 
             
-            if(await mint.wait()){
+            await mint.wait().then((data) =>{
+                console.log(data)
                 document.getElementById("btn-connect").innerHTML = "Success!"
-                document.getElementById("errormsg").innerHTML = "You can now view your NFT on Opensea :)"
-
-            }else{
-                document.getElementById("errormsg").innerHTML = "Failed, Try again..."
-                document.getElementById("btn-connect").innerHTML = "Mint"
-
-            }
+                document.getElementById("errormsg").innerHTML = "You can now view your NFT on <a href='https://opensea.io/collections/umms'   >Opensea</a> :)"
+            })
 
         } catch (err) {
 
