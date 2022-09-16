@@ -769,7 +769,7 @@ async function mintAllowlist() {
         document.getElementById("btn-connect").innerHTML = "Minting..."
 
 
-        total = 0.05 * parseInt(amountChosen)
+        total = 0 * parseInt(amountChosen)
         let overrides = {
             value: ethers.utils.parseEther(total.toString())
         };
