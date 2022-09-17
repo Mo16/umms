@@ -782,7 +782,7 @@ async function mintAllowlist() {
             await mint.wait().then((data) =>{
                 console.log(data)
                 document.getElementById("btn-connect").innerHTML = "Success!"
-                document.getElementById("errormsg").innerHTML = "You can now view your NFT on <a href='https://opensea.io/collections/umms'   >Opensea</a> :)"
+                document.getElementById("errormsg").innerHTML = "You can now view your NFT on <a href='https://opensea.io/collection/umms'   >Opensea</a> :)"
             })
 
         } catch (err) {
